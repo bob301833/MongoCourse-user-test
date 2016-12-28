@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon --exec 'mocha -R min' --compilers js:babel-core/register"
+    "test": "nodemon --exec 'mocha -R min' --compilers js:babel-core/register",
+    "mocha": "mocha --compilers js:babel-core/register"
   },
   "author": "",
   "license": "ISC",
