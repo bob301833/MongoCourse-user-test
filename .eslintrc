@@ -1,4 +1,7 @@
 {
+    "env": {
+      "mocha": true
+    },
     "extends": "rallycoding",
     "rules": {
       "no-underscore-dangle": 0
