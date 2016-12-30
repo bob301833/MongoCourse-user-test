@@ -4,6 +4,7 @@
     },
     "extends": "rallycoding",
     "rules": {
-      "no-underscore-dangle": 0
+      "no-underscore-dangle": 0,
+      "one-var": 0
     }
 }
