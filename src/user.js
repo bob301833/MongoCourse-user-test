@@ -26,9 +26,18 @@ UserSchema.virtual('postCount').get(function() {
 
 UserSchema.pre('remove', function(next) {
   const BlogPost = mongoose.model('blogPost');
+  const Comment = mongoose.model('comment');
 
-  BlogPost.remove({ _id: { $in: this.blogPosts } })
-    .then(() => next());
+  for (const blogPost of this.blogPosts) {
+    BlogPost.findById(blogPost)
+      .then((blog) => {
+         Comment.remove({ _id: { $in: blog.comments } })
+          .then(() => {
+            BlogPost.remove({ _id: blogPost });
+          });
+      })
+      .then(() => next());
+  }
 });
 
 const User = mongoose.model('user', UserSchema);
